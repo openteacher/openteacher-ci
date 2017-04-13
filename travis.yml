@@ -1,0 +1,30 @@
+language: python
+python:
+- "2.7"
+
+install:
+- npm install -g jshint
+
+script:
+- cd openteacher
+- python openteacher.py -p test-suite all
+
+addons:
+  apt:
+    packages:
+    - espeak
+    - python-chardet
+    - python-enchant
+    - python-pyqt5
+    - python-pyqt5.qtopengl
+    - python-pyqt5.qtmultimedia
+    - python-pyqt5.qtquick
+    - python-pyqt5.qtwebkit
+    - python-latexcodec
+    - tesseract-ocr
+    - cython
+    - python-babel
+    - python-faulthandler
+    - python-mccabe
+    - npm
+

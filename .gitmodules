@@ -1,0 +1,4 @@
+[submodule "openteacher"]
+	path = openteacher
+	url = git://git.launchpad.net/openteacher
+	branch = master
