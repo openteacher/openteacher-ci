@@ -10,6 +10,7 @@ script:
 - python openteacher.py -p test-suite all
 
 addons:
+  ssh_known_hosts: git.launchpad.net
   apt:
     packages:
     - espeak
@@ -27,4 +28,3 @@ addons:
     - python-faulthandler
     - python-mccabe
     - npm
-
