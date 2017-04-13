@@ -38,9 +38,16 @@ RUN apt-get update && apt-get install -y \
   apt-get remove --purge -y npm python-pip &&\
   apt-get autoremove --purge -y &&\
   rm -rf /var/lib/apt/lists/*
+
+# TODO: integrate
+RUN apt-get update -y && apt-get install -y \
+  python-coverage \
+  nodejs \
+  python-bzrlib &&\
+  ln -s /usr/bin/nodejs /usr/bin/node
+
 COPY openteacher openteacher
 WORKDIR openteacher
 ENV DISPLAY :99
 COPY run.sh /run.sh
-ENTRYPOINT ["/run.sh"]
-CMD ["-p", "test-suite", "fast"]
+CMD ["/run.sh"]

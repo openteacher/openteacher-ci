@@ -1,0 +1,7 @@
+- upload build artifacts to VPS
+  - also setup irc bot/code documentation/web services again (should be easier
+    with Docker image as base)
+- debian package (+ publish to 'PPA'?)
+- fedora/openSUSE/arch docker files (build-only)
+- mac os x build (on travis)
+- windows build (appveyor?)

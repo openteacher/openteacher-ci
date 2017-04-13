@@ -7,9 +7,5 @@ services:
 install:
   - docker build -t openteacher .
 
-env:
-  - ARGS=-p test-suite full
-  - ARGS=-p code-complexity
-
 script:
-  - docker run openteacher $ARGS
+  - docker run openteacher
