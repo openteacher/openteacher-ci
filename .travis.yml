@@ -1,11 +1,21 @@
 sudo: requires
-language: python # but we don't actually use it, it's all docker
 
+language: python
+python:
+  - "3.6"
+
+os:
+  - linux
+  - osx
 services:
   - docker
 
 install:
-  - docker build -t openteacher .
+  - if [[ "$TRAVIS_OS_NAME" == "linux "]]; then ./build.sh; fi
 
 script:
-  - docker run openteacher
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./run.py; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./osx.sh; fi
+
+deploy:
+  skip_cleanup: true
