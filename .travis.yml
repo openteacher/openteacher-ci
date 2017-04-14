@@ -1,21 +1,24 @@
-sudo: requires
-
-language: python
-python:
-  - "3.6"
-
-os:
-  - linux
-  - osx
-services:
-  - docker
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      language: python
+      python: 3.6
+      services:
+        - docker
+    - os: osx
+      language: generic
 
 install:
-  - if [[ "$TRAVIS_OS_NAME" == "linux "]]; then ./build.sh; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./build.sh; fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./run.py; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then BUILD_NUMBER="$TRAVIS_BUILD_NUMBER" ./run.py; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./osx.sh; fi
 
-deploy:
-  skip_cleanup: true
+after_success:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push openteacher/openteacher:ubuntu;
+    fi
+  - ls output
