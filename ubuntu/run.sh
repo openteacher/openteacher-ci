@@ -8,5 +8,5 @@ if [ "$COV" ]; then
 elif [ "$PROFILING" ]; then
   python -m cProfile -o "$PROFILING" openteacher.py "$@"
 else
-  python openteacher.py $@
+  python openteacher.py "$@"
 fi

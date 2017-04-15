@@ -21,4 +21,9 @@ after_success:
     docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker push openteacher/openteacher:ubuntu;
     fi
-  - ls output
+  - ls -alR output
+
+notifications:
+  email: false
+  irc:
+    - "chat.freenode.net#openteacher"

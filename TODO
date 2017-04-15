@@ -1,5 +1,4 @@
 - upload build artifacts to VPS
-  - also setup irc bot/code documentation/web services again (should be easier
-    with Docker image as base)
-- openSUSE docker file (build-only)
+- openSUSE docker file (build only)
 - windows build (appveyor?)
+- fix locale when running in docker (run e.g. 'python openteacher.py -p cli authors')
