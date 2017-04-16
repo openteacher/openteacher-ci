@@ -25,5 +25,4 @@ after_success:
 
 notifications:
   email: false
-  irc:
-    - "chat.freenode.net#openteacher"
+  irc: "chat.freenode.net#openteacher"

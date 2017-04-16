@@ -1,16 +1,22 @@
 FROM ubuntu:latest
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
+  build-essential \
   cython \
+  dbus \
+  dh-python \
   espeak \
+  fakeroot \
   gettext \
   libreoffice-writer \
   libreoffice-calc \
+  locales \
   nodejs \
   npm \
+  python-all \
+  python-all-dev \
   python-babel \
   python-bzrlib \
   python-chardet \
-  python-coverage \
   python-cssselect \
   python-docutils \
   python-enchant \
@@ -38,16 +44,25 @@ RUN apt-get update && apt-get install -y \
   tesseract-ocr \
   xvfb \
   &&\
+  apt-get install -y python-coverage \
+  &&\
   ln -s /usr/bin/nodejs /usr/bin/node &&\
   npm install -g jshint &&\
+  npm cache clean &&\
   pip install latexcodec &&\
+  rm -rf ~/.config/pip &&\
   apt-get remove --purge -y npm python-pip &&\
   apt-get autoremove --purge -y &&\
   rm -rf /var/lib/apt/lists/*
 
-COPY openteacher openteacher
-WORKDIR openteacher
-COPY ubuntu/run.sh /run.sh
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+COPY openteacher /openteacher
+WORKDIR /openteacher
+COPY ubuntu/run.sh /
 
 ENV DISPLAY :99
 ENTRYPOINT ["/run.sh"]

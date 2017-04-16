@@ -1,4 +1,3 @@
 - upload build artifacts to VPS
 - openSUSE docker file (build only)
 - windows build (appveyor?)
-- fix locale when running in docker (run e.g. 'python openteacher.py -p cli authors')

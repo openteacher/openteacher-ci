@@ -28,8 +28,8 @@ RUN pacman -Sy --noconfirm \
   &&\
   pacman -Sc --noconfirm
 
-COPY openteacher openteacher
-WORKDIR openteacher
+COPY openteacher /openteacher
+WORKDIR /openteacher
 RUN useradd -d /openteacher arch && chown -R arch:arch /openteacher
 
 COPY arch/run*.sh /

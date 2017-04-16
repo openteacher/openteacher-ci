@@ -12,8 +12,8 @@ RUN dnf install -y \
   &&\
   dnf clean all -y
 
-COPY openteacher openteacher
-WORKDIR openteacher
+COPY openteacher /openteacher
+WORKDIR /openteacher
 COPY fedora/run.sh /run.sh
 
 ENV DISPLAY :99
