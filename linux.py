@@ -29,12 +29,12 @@ run('-p non-existing-profile', withOutput=True, PROFILING='/output/profiling')
 run('-p code-complexity', logTo='output/code-complexity.txt')
 
 # web stuff
-run('-p generate-mobile /output/mobile', withOutput=True)
+run('-p generate-mobile /tmp/mobile')
 run(' '.join([
-    '-p', 'generate-web', '/output/web',
-    'http://web.openteacher.org:5984',
+    '-p', 'generate-web', '/tmp/web',
+    'http://web.openteacher.org:5985',
     'http://web.openteacher.org/services'
-]), withOutput=True)
+]))
 run('-p generate-website /output/website', withOutput=True)
 run(
     '-p generate-business-card /output/openteacher-business-card.png',

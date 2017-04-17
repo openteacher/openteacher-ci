@@ -13,7 +13,7 @@ install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./build.sh; fi
 
 script:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then BUILD_NUMBER="$TRAVIS_BUILD_NUMBER" ./run.py; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then BUILD_NUMBER="$TRAVIS_BUILD_NUMBER" ./linux.py; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./osx.sh; fi
 
 after_success:
@@ -25,4 +25,6 @@ after_success:
 
 notifications:
   email: false
-  irc: "chat.freenode.net#openteacher"
+  irc:
+    channels:
+      - "chat.freenode.net#openteacher"
