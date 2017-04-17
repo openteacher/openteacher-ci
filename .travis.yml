@@ -8,6 +8,7 @@ matrix:
         - docker
     - os: osx
       language: generic
+      osx_image: xcode8.3
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./build.sh; fi
@@ -16,15 +17,18 @@ script:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then BUILD_NUMBER="$TRAVIS_BUILD_NUMBER" ./linux.py; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./osx.sh; fi
 
-after_success:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push openteacher/openteacher:ubuntu;
-    fi
-  - ls -alR output
+deploy:
+  provider: script
+  script: ./deploy.sh
+  skip_cleanup: true
 
 notifications:
   email: false
   irc:
     channels:
       - "chat.freenode.net#openteacher"
+
+addons:
+  ssh_known_hosts:
+    - web.openteacher.org
+    - git.launchpad.net
