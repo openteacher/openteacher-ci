@@ -1,0 +1,14 @@
+branches:
+  only:
+    - master
+
+install:
+  - git submodule update --init --recursive
+
+build: off
+
+test_script:
+  - windows.bat
+
+artifacts:
+  - path: output
