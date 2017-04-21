@@ -62,6 +62,13 @@ run(
     withOutput=True,
     logTo='output/logs/package-fedora.txt')
 
+# opensuse
+run(
+    '-p package-rpm %s /output/opensuse.rpm' % buildNum,
+    on='opensuse',
+    withOutput=True,
+    logTo='output/logs/package-opensuse.txt')
+
 # arch
 run(
     '-p package-arch %s /output/arch.pkg.tar.xz' % buildNum,

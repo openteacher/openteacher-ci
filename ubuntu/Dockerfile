@@ -27,7 +27,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   python-imaging \
   python-launchpadlib \
   python-mccabe \
-  python-pip \
   python-polib \
   python-pygments \
   python-pygraphviz \
@@ -49,9 +48,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   ln -s /usr/bin/nodejs /usr/bin/node &&\
   npm install -g jshint &&\
   npm cache clean &&\
-  pip install latexcodec &&\
-  rm -rf ~/.config/pip &&\
-  apt-get remove --purge -y npm python-pip &&\
+  apt-get remove --purge -y npm &&\
   apt-get autoremove --purge -y &&\
   rm -rf /var/lib/apt/lists/*
 
