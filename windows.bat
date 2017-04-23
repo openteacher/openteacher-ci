@@ -1,3 +1,4 @@
+git submodule update --remote
 REM FIXME: get pyqt5 properly installed (currently it fails)
 pip install https://github.com/pyqt/python-qt5/archive/master.zip
 pip install chardet pyenchant urwid Cython pyinstaller pyenchant Pillow
