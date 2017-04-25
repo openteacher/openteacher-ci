@@ -1,6 +1,6 @@
 FROM base/archlinux
 
-RUN pacman -Sy --noconfirm \
+RUN pacman -Sy --noconfirm --force \
   cython2 \
   desktop-file-utils \
   espeak \
