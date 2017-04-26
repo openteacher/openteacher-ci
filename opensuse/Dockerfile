@@ -1,9 +1,10 @@
 FROM opensuse:latest
 # TODO: find dependency packages
 RUN zypper --non-interactive install \
-  python-Cython \
-  python-docutils \
-  python-qt5 \
+  python3-Cython \
+  python3-devel \
+  python3-docutils \
+  python3-qt5 \
   rpmbuild \
   xorg-x11-server \
   &&\

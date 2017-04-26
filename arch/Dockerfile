@@ -1,7 +1,7 @@
 FROM base/archlinux
 
 RUN pacman -Sy --noconfirm --force \
-  cython2 \
+  cython \
   desktop-file-utils \
   espeak \
   fakeroot \
@@ -10,14 +10,14 @@ RUN pacman -Sy --noconfirm --force \
   grep \
   gzip \
   hicolor-icon-theme \
-  python2 \
-  python2-chardet \
-  python2-docutils \
-  python2-opengl \
-  python2-pillow \
-  python2-pyenchant \
-  python2-pyqt5 \
-  python2-urwid \
+  python \
+  python-chardet \
+  python-docutils \
+  python-opengl \
+  python-pillow \
+  python-pyenchant \
+  python-pyqt5 \
+  python-urwid \
   qt5-declarative \
   qt5-multimedia \
   qt5-webkit \

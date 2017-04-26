@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python2 openteacher.py $@
+python3 openteacher.py $@

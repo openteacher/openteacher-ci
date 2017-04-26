@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 RUN apt-get update && apt-get install --no-install-recommends -y \
   build-essential \
-  cython \
+  cython3 \
   dbus \
   dh-python \
   espeak \
@@ -13,42 +13,42 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   nodejs \
   npm \
   python-all \
-  python-all-dev \
-  python-babel \
-  python-bzrlib \
-  python-chardet \
-  python-cssselect \
-  python-docutils \
-  python-enchant \
-  python-faulthandler \
-  python-feedparser \
-  python-flask \
-  python-gi \
-  python-imaging \
-  python-launchpadlib \
-  python-mccabe \
-  python-polib \
-  python-pygments \
-  python-pygraphviz \
-  python-pyqt5 \
-  python-pyqt5.qtmultimedia \
-  python-pyqt5.qtopengl \
-  python-pyqt5.qtquick \
-  python-pyqt5.qtwebkit \
-  python-recaptcha \
-  python-requests \
-  python-stdeb \
-  python-twisted \
-  python-urwid \
+  python3-all \
+  python3-all-dev \
+  python3-babel \
+  python3-chardet \
+  python3-cssselect \
+  python3-docutils \
+  python3-enchant \
+  python3-feedparser \
+  python3-flask \
+  python3-gi \
+  python3-pil \
+  python3-pip \
+  python3-launchpadlib \
+  python3-mccabe \
+  python3-polib \
+  python3-pygments \
+  python3-pygraphviz \
+  python3-pyqt5 \
+  python3-pyqt5.qtmultimedia \
+  python3-pyqt5.qtopengl \
+  python3-pyqt5.qtquick \
+  python3-pyqt5.qtwebkit \
+  python3-requests \
+  python3-stdeb \
+  python3-twisted \
+  python3-urwid \
   tesseract-ocr \
   xvfb \
   &&\
-  apt-get install -y python-coverage \
+  apt-get install -y python3-coverage \
   &&\
   ln -s /usr/bin/nodejs /usr/bin/node &&\
   npm install -g jshint &&\
   npm cache clean &&\
-  apt-get remove --purge -y npm &&\
+  pip3 --no-cache-dir install pydle flask-recaptcha &&\
+  apt-get remove --purge -y npm python3-pip &&\
   apt-get autoremove --purge -y &&\
   rm -rf /var/lib/apt/lists/*
 
@@ -64,5 +64,3 @@ COPY ubuntu/run.sh /
 ENV DISPLAY :99
 ENTRYPOINT ["/run.sh"]
 CMD ["--help"]
-
-# FIXME: python-latexcodec

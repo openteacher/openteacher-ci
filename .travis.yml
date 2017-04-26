@@ -28,6 +28,8 @@ notifications:
   irc:
     channels:
       - "chat.freenode.net#openteacher"
+    use_notice: true
+    skip_join: true
 
 addons:
   ssh_known_hosts:

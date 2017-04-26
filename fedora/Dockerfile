@@ -1,11 +1,12 @@
 FROM fedora:latest
 RUN dnf install -y \
-  Cython \
+  python3-Cython \
   gcc \
   python-docutils \
-  python-qt5 \
-  python2 \
-  python2-devel \
+  python3-docutils \
+  python3-qt5 \
+  python3 \
+  python3-devel \
   redhat-rpm-config \
   rpm-build \
   xorg-x11-server-Xvfb \
