@@ -1,9 +1,9 @@
 #!/bin/sh
 
-export PATH="/usr/local/bin:/usr/local/share/python:${PATH}"
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-brew install python3 pyqt5 enchant tesseract --all-languages pil
-pip3 install chardet pyenchant urwid Cython pyinstaller
+brew install pyenv pyqt5 enchant tesseract --all-languages
+pip3 install chardet pyenchant urwid Cython pillow git+https://github.com/pyinstaller/pyinstaller.git@develop
 mkdir output
 cd openteacher
 # TODO: investigate properly. Now just disabled because it makes Travis crash.
