@@ -23,6 +23,6 @@ lftp sftp://travisci:dummypassword@web.openteacher.org << EOF
 set net:timeout 10
 set net:reconnect-interval-base 5
 set net:max-retries 2
-mirror --delete -R output $TRAVIS_OS_NAME
+mirror --delete -R output builds/$TRAVIS_OS_NAME
 bye
 EOF
