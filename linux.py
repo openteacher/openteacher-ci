@@ -16,7 +16,10 @@ def run(args, on='ubuntu', withOutput=False, logTo=None, **envVars):
     if logTo:
         print("# logging to: " + logTo)
         with open(logTo, 'wb') as f:
-            subprocess.check_call(cmd, stdout=f, stderr=f)
+            try:
+                subprocess.check_call(cmd, stdout=f, stderr=f)
+            except subprocess.CalledProcessError:
+                subprocess.check_call(['tail', '-n', '30', logTo])
     else:
         subprocess.check_call(cmd)
 
