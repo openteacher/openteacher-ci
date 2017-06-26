@@ -20,6 +20,7 @@ def run(args, on='ubuntu', withOutput=False, logTo=None, **envVars):
                 subprocess.check_call(cmd, stdout=f, stderr=f)
             except subprocess.CalledProcessError:
                 subprocess.check_call(['tail', '-n', '30', logTo])
+                raise
     else:
         subprocess.check_call(cmd)
 

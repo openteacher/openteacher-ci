@@ -1,6 +1,7 @@
 #!/bin/sh
 
 mkdir -p output/logs
+chmod -R 777 output
 echo "Building Ubuntu docker image. See output/logs/docker-ubuntu.txt"
 docker build -t openteacher/openteacher:ubuntu -f ubuntu/Dockerfile . 2>&1 1> output/logs/docker-ubuntu.txt
 echo "Building Fedora docker image. See output/logs/docker-fedora.txt"
