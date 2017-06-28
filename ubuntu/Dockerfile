@@ -48,7 +48,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   npm install -g jshint &&\
   npm cache clean &&\
   pip3 --no-cache-dir install pydle flask-recaptcha &&\
-  apt-get remove --purge -y npm python3-pip &&\
+  apt-get remove --purge -y python3-pip &&\
   apt-get autoremove --purge -y &&\
   rm -rf /var/lib/apt/lists/*
 
@@ -59,6 +59,8 @@ ENV LC_ALL en_US.UTF-8
 
 COPY openteacher /openteacher
 WORKDIR /openteacher
+
+RUN npm install
 COPY ubuntu/run.sh /
 
 ENV DISPLAY :99
