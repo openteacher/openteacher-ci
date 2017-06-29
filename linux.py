@@ -36,8 +36,9 @@ run('-p code-complexity', logTo='output/code-complexity.txt')
 run('-p generate-mobile /tmp/mobile')
 run(' '.join([
     '-p', 'generate-web', '/tmp/web',
-    'http://web.openteacher.org:5985',
-    'http://web.openteacher.org/services'
+    'http://web.openteacher.org/db',
+    'http://web.openteacher.org/services',
+    'build'
 ]))
 run('-p generate-website /output/website', withOutput=True)
 run(
