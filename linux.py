@@ -33,7 +33,7 @@ run('-p non-existing-profile', withOutput=True, PROFILING='/output/profiling')
 run('-p code-complexity', logTo='output/code-complexity.txt')
 
 # web stuff
-run('-p generate-mobile /tmp/mobile')
+run('-p generate-mobile /tmp/mobile build')
 run(' '.join([
     '-p', 'generate-web', '/tmp/web',
     'http://web.openteacher.org/db',
